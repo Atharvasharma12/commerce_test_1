@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header.jsx";
+import ShowItems from "./components/ShowItems";
+import product from "./components/Product";
+import Cart from "./components/Cart";
 function App() {
+  const addToCart = (clickedProduct) => {
+    setCart([...cart, { ...clickedProduct, quantity : 1}]);
+  };
+
+  const [changePage, setChangePage] = useState(false);
+
+  const [cart, setCart] = useState([]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header cartItemNumber={cart.length} setChangePage={setChangePage} />
+
+      {changePage ? (
+        <Cart cart={cart} />
+      ) : (
+        <ShowItems product={product} addToCart={addToCart} />
+      )}
+    </>
   );
 }
 

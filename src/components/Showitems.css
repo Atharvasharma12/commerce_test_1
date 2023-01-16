@@ -1,0 +1,22 @@
+.display{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;    
+    justify-content: center;
+}
+
+.maindiv{
+    display: flex;
+    padding: 30px;
+    /* border: 1px solid gray; */
+    margin: 10px;
+    
+}
+
+.eachproduct{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+}
