@@ -5,9 +5,9 @@ function Header(props) {
     <>
       <nav>
         <div>
-          <h1 onClick={ ()=>{props.setChangePage(false)}} >QuickShop</h1>
+          <h1 onClick={ ()=>{props.setChangePage(false)}} className = "pointer">QuickShop</h1>
         </div>
-        <div onClick={ ()=>{props.setChangePage(true)}} >Cart ( {props.cartItemNumber} items )</div>
+        <div onClick={ ()=>{props.setChangePage(true)}} className = "pointer">Cart ( {props.cartItemNumber} items )</div>
       </nav>
     </>
   );

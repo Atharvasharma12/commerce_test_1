@@ -18,7 +18,7 @@ function App() {
       <Header cartItemNumber={cart.length} setChangePage={setChangePage} />
 
       {changePage ? (
-        <Cart cart={cart} />
+        <Cart cart={cart} setCart = {setCart} />
       ) : (
         <ShowItems product={product} addToCart={addToCart} />
       )}

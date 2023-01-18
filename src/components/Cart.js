@@ -1,12 +1,15 @@
 import { useState, useEffect, React } from "react";
 import "./Cart.css";
 
-export default function Cart({ cart }) {
+export default function Cart({ cart, setCart }) {
   const [newCart, setNewCart] = useState([]);
-console.log(newCart.quantity)
+
   useEffect(() => {
+    console.log("cart list copied")
     setNewCart(cart);
-  }, [cart]);
+  },[cart]);
+
+
 
   return (
     <div>
@@ -41,7 +44,8 @@ console.log(newCart.quantity)
                         ? { ...product, quantity: product.quantity + 1 }
                         : product;
                     });
-                    setNewCart(_cart);
+                    setCart(_cart);
+                    console.log("product updated")
                   }}
                 >
                   +
@@ -50,12 +54,26 @@ console.log(newCart.quantity)
                   <p>{product.quantity}</p>
                 </div>
                 <button onClick={() => {
-                    const _cart = newCart.map((product, cartIndex) => {
-                      return cartIndex === index
-                        ? { ...product, quantity: product.quantity - 1 }
-                        : product;
-                    });
-                    setNewCart(_cart);
+
+                      if (product.quantity > 1){
+                         const _cart = newCart.map((product, cartIndex) => {
+                          return cartIndex === index
+                          ? { ...product, quantity: product.quantity - 1 }
+                          : product;
+                        });
+                        setCart(_cart);
+                      }
+                      else {
+                        window.alert("do you want to remove product");
+                          
+                      console.log( cart.filter(product => product.index!==index))
+                        
+
+
+
+
+
+                      }
                   }} >-</button>
                 <div>
                   <p>{product.price * product.quantity}</p>
