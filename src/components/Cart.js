@@ -79,7 +79,7 @@ export default function Cart({ cart, setCart }) {
                   -
                 </button>
 
-                {/* <button 
+                {/* < button 
                 onClick={()=>{ 
                   setCart()
                  }}
