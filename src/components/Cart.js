@@ -5,11 +5,10 @@ export default function Cart({ cart, setCart }) {
   const [newCart, setNewCart] = useState([]);
 
   useEffect(() => {
-    console.log("cart list copied")
+    // console.log("cart list copied")
+
     setNewCart(cart);
-  },[cart]);
-
-
+  }, [cart]);
 
   return (
     <div>
@@ -17,8 +16,8 @@ export default function Cart({ cart, setCart }) {
         <p>
           Total =
           {newCart
-            .map(product => product.price * product.quantity)
-            .reduce((total, currentValue) => total + currentValue , 0)}
+            .map((product) => product.price * product.quantity)
+            .reduce((total, currentValue) => total + currentValue, 0)}
         </p>
       </div>
 
@@ -45,7 +44,7 @@ export default function Cart({ cart, setCart }) {
                         : product;
                     });
                     setCart(_cart);
-                    console.log("product updated")
+                    // console.log("product updated");
                   }}
                 >
                   +
@@ -53,30 +52,41 @@ export default function Cart({ cart, setCart }) {
                 <div>
                   <p>{product.quantity}</p>
                 </div>
-                <button onClick={() => {
-
-                      if (product.quantity > 1){
-                         const _cart = newCart.map((product, cartIndex) => {
-                          return cartIndex === index
+                <button
+                  onClick={() => {
+                    if (product.quantity > 1) {
+                      const _cart = newCart.map((product, cartIndex) => {
+                        return cartIndex === index
                           ? { ...product, quantity: product.quantity - 1 }
                           : product;
-                        });
-                        setCart(_cart);
-                      }
-                      else {
-                        window.alert("do you want to remove product");
-                          
-                      console.log( cart.filter(product => product.index!==index))
-                        
+                      });
+                      setCart(_cart);
+                    } else {
+                      // console.log(product.index);
+                      window.alert("do you want to remove product");
 
+                      const rcart = newCart.filter((newCart) => {
+                        return product.id !== newCart.id;
+                      });
+                      // setNewCart(rcart)
+                      setCart(rcart);
+                      // console.log(cart[index].id , newCart[index].id)
+                      // console.log(newCart[index].id,cart[index].id)
+                      // console.log(rcart)
+                    }
+                  }}
+                >
+                  -
+                </button>
 
+                {/* <button 
+                onClick={()=>{ 
+                  setCart()
+                 }}
+                 >Delete</button> */}
 
-
-
-                      }
-                  }} >-</button>
                 <div>
-                  <p>{product.price * product.quantity}</p>
+                  <p> Rs.{product.price * product.quantity} /-</p>
                 </div>
               </div>
             </div>
