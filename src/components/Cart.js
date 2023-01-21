@@ -87,15 +87,15 @@ export default function Cart({ cart, setCart }) {
                 >
                   -
                 </button>
-
-                <button
-                  onClick={() => {
-                    handelDelete(product);
-                  }}
-                >
-                  Delete
-                </button>
-
+                <div>
+                  <button
+                    onClick={() => {
+                      handelDelete(product);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
                 <div>
                   <p> Rs.{product.price * product.quantity} /-</p>
                 </div>

@@ -7,7 +7,17 @@ function Header(props) {
         <div>
           <h1 onClick={ ()=>{props.setChangePage(false)}} className = "pointer">QuickShop</h1>
         </div>
-        <div onClick={ ()=>{props.setChangePage(true)}} className = "pointer">Cart ( {props.cartItemNumber} items )</div>
+
+
+        <div className="cartdiv">
+
+        <div onClick={ ()=>{props.setChangePage(true)}} className = "pointer">
+        Cart ( {props.cartItemNumber} items )
+        </div>
+        <div>
+          <img src="icons8-shopping-cart-30.png"  alt="" srcset="" />
+        </div>
+        </div>
       </nav>
     </>
   );
