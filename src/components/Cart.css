@@ -1,17 +1,20 @@
+.master{
+    background-color: #9F73AB;
+    border-radius: 10px;
+}
 
 .main{
     display: flex;
     flex-direction: column;
     padding: 10px;
-
     margin: 20px;    
 }
 
 .card{
     display: flex;
     flex-direction: row;
-    
-    background-color: #fffefb3b;
+    border-radius: 10px;
+    background-color: #7658a9b5;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
@@ -19,12 +22,63 @@
     
 }
 
-.card img{
+.card .prouductimg{
     width: 100px;
 }
 
-.card div{
-    
-    
+.main button{
+    background-color: var(--button_color);
+    border: var(--button_border);
+    border-radius: 10px;
+    color: white;
+    height: 40px;
+    cursor: pointer;
+    width: 30px;
 }
 
+.total{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    background-color: #3F3B6C;
+    color: white;
+    bottom: 10px;
+    height: 35px;
+    left: 10px;
+    width: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0 20px 2px black;
+}   
+.checkout{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.add-to-delete{
+    display: flex;
+    gap: 20px;
+}
+
+#plus{
+    background-color: green;
+}
+
+#minus{
+    background-color: red   ;
+}
+
+#dustbin{
+    background-color: black;
+}
+
+@media (max-width : 500px){
+    .card{
+        flex-direction: column;
+    }
+}

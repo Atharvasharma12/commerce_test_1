@@ -9,6 +9,8 @@
     border: var(--button_border);
     border-radius: 10px;
     color: white;
+    height: 40px;
+    cursor: pointer;
 }
 
 .display{
@@ -18,7 +20,7 @@
     flex-wrap: wrap;
     padding: 30px;    
     justify-content: center;
-    background-color: #e56c6c;
+    background-color: #9F73AB;
 }
 
 .maindiv{
@@ -27,7 +29,8 @@
     padding: 30px;
     /* border: 1px solid gray; */
     margin: 10px;
-    background-color: #fffefb3b;
+    background-color: #7658a9b5;
+    color: white;
     
 }
 
@@ -40,5 +43,5 @@
 
 .maindiv:hover{
     transition: .3s;
-    box-shadow: 0px 0 20px 2px rgb(95, 59, 59);
+    box-shadow: 0px 0 20px 2px black;
 }
