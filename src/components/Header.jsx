@@ -15,7 +15,7 @@ function Header(props) {
         Cart ( {props.cartItemNumber} items )
         </div>
         <div>
-          <img src="icons8-shopping-cart-30.png"  alt="" srcset="" />
+          <img src="icons8-shopping-cart-30.png"  alt="icon" />
         </div>
         </div>
       </nav>

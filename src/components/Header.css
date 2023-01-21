@@ -1,6 +1,6 @@
 nav {
     display: flex;
-    background-color: black;
+    background-color: #3F3B6C;
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
@@ -17,4 +17,5 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
