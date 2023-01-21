@@ -7,7 +7,7 @@ function ShowItems({ product, addToCart }) {
         return (
           <div key={id} className="maindiv">
             
-            <img src='https://api.lorem.space/image/book?w=150&h=220' style={{ width: "50%" }} alt="img"></img>
+            <img src={product.url} style={{ width: "50%" }} alt="img"></img>
             <div className="eachproduct">
               <h3>{product.name}</h3>
               <p>{product.description}</p>

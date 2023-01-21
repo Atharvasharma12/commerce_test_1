@@ -9,11 +9,11 @@ function Header(props) {
         </div>
 
 
-        <div className="cartdiv">
+        <div className="cartdiv pointer" onClick={ ()=>{props.setChangePage(true)}}>
 
-        <div onClick={ ()=>{props.setChangePage(true)}} className = "pointer">
-        Cart ( {props.cartItemNumber} items )
-        </div>
+        <span  >
+      {props.cartItemNumber}
+        </span>
         <div>
           <img src="icons8-shopping-cart-30.png"  alt="icon" />
         </div>

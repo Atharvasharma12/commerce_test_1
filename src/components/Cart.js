@@ -39,9 +39,16 @@ export default function Cart({ cart, setCart }) {
                     <h3>{product.name}</h3>
                   </div>
                   <div>
+                    <p> Rs.{product.price * product.quantity} /-</p>
+                  </div>
+                  <div>
                     <p>{product.description}</p>
                   </div>
-                  <button
+                  
+
+         <div className="add-to-delete" >
+
+                  <button id="plus"
                     onClick={() => {
                       const _cart = newCart.map((product, cartIndex) => {
                         return cartIndex === index
@@ -57,7 +64,7 @@ export default function Cart({ cart, setCart }) {
                   <div>
                     <p>{product.quantity}</p>
                   </div>
-                  <button
+                  <button id="minus"
                     onClick={() => {
                       if (product.quantity > 1) {
                         const _cart = newCart.map((product, cartIndex) => {
@@ -84,7 +91,7 @@ export default function Cart({ cart, setCart }) {
                     -
                   </button>
                   <div>
-                    <button
+                    <button id="dustbin"
                       onClick={() => {
                         handelDelete(product);
                       }}
@@ -94,16 +101,15 @@ export default function Cart({ cart, setCart }) {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-trash-fill"
+                        className="bi bi-trash-fill"
                         viewBox="0 0 16 16"
                       >
                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
                       </svg>
                     </button>
                   </div>
-                  <div>
-                    <p> Rs.{product.price * product.quantity} /-</p>
                   </div>
+                 
                 </div>
               </div>
             </div>
@@ -128,11 +134,11 @@ export default function Cart({ cart, setCart }) {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-arrow-right-short"
+              className="bi bi-arrow-right-short"
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
               />
             </svg>

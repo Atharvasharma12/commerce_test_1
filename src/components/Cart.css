@@ -60,4 +60,25 @@
     justify-content: center;
 
 }
+.add-to-delete{
+    display: flex;
+    gap: 20px;
+}
 
+#plus{
+    background-color: green;
+}
+
+#minus{
+    background-color: red   ;
+}
+
+#dustbin{
+    background-color: black;
+}
+
+@media (max-width : 500px){
+    .card{
+        flex-direction: column;
+    }
+}
