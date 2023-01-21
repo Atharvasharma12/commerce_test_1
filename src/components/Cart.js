@@ -10,6 +10,15 @@ export default function Cart({ cart, setCart }) {
     setNewCart(cart);
   }, [cart]);
 
+  const handelDelete = (product) => {
+    window.alert(`do you want to remove ${product.name}`);
+
+    const dcart = newCart.filter((newCart) => {
+      return newCart.id !== product.id;
+    });
+    setCart(dcart);
+  };
+
   return (
     <div>
       <div>
@@ -63,7 +72,7 @@ export default function Cart({ cart, setCart }) {
                       setCart(_cart);
                     } else {
                       // console.log(product.index);
-                      window.alert("do you want to remove product");
+                      window.alert(`do you want to remove ${product.name}`);
 
                       const rcart = newCart.filter((newCart) => {
                         return product.id !== newCart.id;
@@ -79,11 +88,13 @@ export default function Cart({ cart, setCart }) {
                   -
                 </button>
 
-                {/* < button 
-                onClick={()=>{ 
-                  setCart()
-                 }}
-                 >Delete</button> */}
+                <button
+                  onClick={() => {
+                    handelDelete(product);
+                  }}
+                >
+                  Delete
+                </button>
 
                 <div>
                   <p> Rs.{product.price * product.quantity} /-</p>
