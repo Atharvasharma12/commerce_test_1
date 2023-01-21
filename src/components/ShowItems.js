@@ -15,7 +15,7 @@ function ShowItems({ product, addToCart }) {
               <button
                 onClick={() => {
                   addToCart(product);
-                  window.alert("item added");
+                  window.alert(`${product.name} item added`);
                 }}
               >
                 Add to cart
