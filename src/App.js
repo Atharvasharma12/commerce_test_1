@@ -7,15 +7,19 @@ import Cart from "./components/Cart";
 function App() {
   const addToCart = (clickedProduct) => {
     setCart([...cart, { ...clickedProduct, quantity : 1}]);
+    
   };
+  
 
   const [changePage, setChangePage] = useState(false);
-
+  
   const [cart, setCart] = useState([]);
+
+
   
   return (
     <>
-      <Header cartItemNumber={cart.length} setChangePage={setChangePage} />
+      <Header cartItemNumber={cart.length} setChangePage={setChangePage} cart = {cart} />
 
       {changePage ? (
         <Cart cart={cart} setCart = {setCart} />

@@ -18,15 +18,17 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 30px;    
+    padding: 30px ;    
     justify-content: center;
     background-color: #9F73AB;
+    position: absolute;
+    top: 79px;
 }
 
 .maindiv{
     border-radius: 10px;
     display: flex;
-    padding: 30px;
+    padding: 30px   ;
     /* border: 1px solid gray; */
     margin: 10px;
     background-color: #7658a9b5;

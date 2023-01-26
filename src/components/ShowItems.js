@@ -1,8 +1,11 @@
 import "../components/Showitems.css";
 import React from "react";
 function ShowItems({ product, addToCart }) {
+  
   return (
     <div className="display">
+
+
       {product.map((product, id) => {
         return (
           <div key={id} className="maindiv">
@@ -16,7 +19,10 @@ function ShowItems({ product, addToCart }) {
                 onClick={() => {
                   addToCart(product);
                   window.alert(`${product.name} item added`);
-                }}
+
+                
+              }}
+                
               >
                 Add to cart
               </button>
