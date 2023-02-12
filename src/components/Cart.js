@@ -1,7 +1,7 @@
 import { useState, useEffect, React } from "react";
 import "./Cart.css";
 
-export default function Cart({ cart, setCart }) {
+export default function Cart({ cart, setCart, addToCartButton }) {
   const [newCart, setNewCart] = useState([]);
 
   useEffect(() => {
@@ -98,6 +98,8 @@ export default function Cart({ cart, setCart }) {
                         id="dustbin"
                         onClick={() => {
                           handelDelete(product);
+
+                           addToCartButton(product)
                         }}
                       >
                         <svg
@@ -128,7 +130,7 @@ export default function Cart({ cart, setCart }) {
               .map((product) => product.price * product.quantity)
               .reduce((total, currentValue) => total + currentValue, 0)}
           </b>
-        </div>
+                </div>
         <div className="checkout">
           <span>check out</span>
           <div>
