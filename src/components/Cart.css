@@ -22,8 +22,8 @@
     
 }
 
-.card .prouductimg{
-    width: 100px;
+.productimg{
+    width: 80px;
 }
 
 .main button{
@@ -63,6 +63,7 @@
 .add-to-delete{
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 #plus{

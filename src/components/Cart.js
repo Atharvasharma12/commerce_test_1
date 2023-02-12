@@ -1,7 +1,7 @@
 import { useState, useEffect, React } from "react";
 import "./Cart.css";
 
-export default function Cart({ cart, setCart }) {
+export default function Cart({ cart, setCart, addToCartButton }) {
   const [newCart, setNewCart] = useState([]);
 
   useEffect(() => {
@@ -39,77 +39,82 @@ export default function Cart({ cart, setCart }) {
                     <h3>{product.name}</h3>
                   </div>
                   <div>
-                    <p> Rs.{product.price * product.quantity} /-</p>
+                    <p>
+                      {" "}
+                      Rs.<b>{product.price * product.quantity}</b> /-
+                    </p>
                   </div>
                   <div>
                     <p>{product.description}</p>
                   </div>
-                  
 
-         <div className="add-to-delete" >
-
-                  <button id="plus"
-                    onClick={() => {
-                      const _cart = newCart.map((product, cartIndex) => {
-                        return cartIndex === index
-                          ? { ...product, quantity: product.quantity + 1 }
-                          : product;
-                      });
-                      setCart(_cart);
-                      // console.log("product updated");
-                    }}
-                  >
-                    +
-                  </button>
-                  <div>
-                    <p>{product.quantity}</p>
-                  </div>
-                  <button id="minus"
-                    onClick={() => {
-                      if (product.quantity > 1) {
+                  <div className="add-to-delete">
+                    <button
+                      id="plus"
+                      onClick={() => {
                         const _cart = newCart.map((product, cartIndex) => {
                           return cartIndex === index
-                            ? { ...product, quantity: product.quantity - 1 }
+                            ? { ...product, quantity: product.quantity + 1 }
                             : product;
                         });
                         setCart(_cart);
-                      } else {
-                        // console.log(product.index);
-                        window.alert(`do you want to remove ${product.name}`);
-
-                        const rcart = newCart.filter((newCart) => {
-                          return product.id !== newCart.id;
-                        });
-                        // setNewCart(rcart)
-                        setCart(rcart);
-                        // console.log(cart[index].id , newCart[index].id)
-                        // console.log(newCart[index].id,cart[index].id)
-                        // console.log(rcart)
-                      }
-                    }}
-                  >
-                    -
-                  </button>
-                  <div>
-                    <button id="dustbin"
-                      onClick={() => {
-                        handelDelete(product);
+                        // console.log("product updated");
                       }}
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-trash-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                      </svg>
+                      +
                     </button>
+                    <div>
+                      <p>{product.quantity}</p>
+                    </div>
+                    <button
+                      id="minus"
+                      onClick={() => {
+                        if (product.quantity > 1) {
+                          const _cart = newCart.map((product, cartIndex) => {
+                            return cartIndex === index
+                              ? { ...product, quantity: product.quantity - 1 }
+                              : product;
+                          });
+                          setCart(_cart);
+                        } else {
+                          // console.log(product.index);
+                          window.alert(`do you want to remove ${product.name}`);
+
+                          const rcart = newCart.filter((newCart) => {
+                            return product.id !== newCart.id;
+                          });
+                          // setNewCart(rcart)
+                          setCart(rcart);
+                          // console.log(cart[index].id , newCart[index].id)
+                          // console.log(newCart[index].id,cart[index].id)
+                          // console.log(rcart)
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+                    <div>
+                      <button
+                        id="dustbin"
+                        onClick={() => {
+                          handelDelete(product);
+
+                           addToCartButton(product)
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-trash-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                  </div>
-                 
                 </div>
               </div>
             </div>
@@ -120,14 +125,14 @@ export default function Cart({ cart, setCart }) {
       <div className="total">
         <div>
           Total = Rs.
-          {newCart
-            .map((product) => product.price * product.quantity)
-            .reduce((total, currentValue) => total + currentValue, 0)}
-        </div>
-        <div className="checkout"><span>
-
-          check out
-        </span>
+          <b>
+            {newCart
+              .map((product) => product.price * product.quantity)
+              .reduce((total, currentValue) => total + currentValue, 0)}
+          </b>
+                </div>
+        <div className="checkout">
+          <span>check out</span>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
